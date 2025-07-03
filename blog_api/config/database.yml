@@ -4,22 +4,29 @@
 #   Ensure the SQLite 3 gem is defined in your Gemfile
 #   gem "sqlite3"
 #
+# NOTE: https://zenn.dev/kei1232/articles/0fac51829570c1
 default: &default
-  adapter: sqlite3
+  adapter: mysql2
+  encoding: utf8mb4
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  database: <%= ENV.fetch("MYSQL_DB") { '' } %>
+  username: <%= ENV.fetch("MYSQL_USER") { '' } %>
+  password: <%= ENV.fetch("MYSQL_ROOT_PASSWORD") { '' } %>
   timeout: 5000
 
 development:
   <<: *default
-  database: storage/development.sqlite3
+  database: <%= ENV.fetch("MYSQL_DB") { '' } %>_development
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: storage/test.sqlite3
+  database: <%= ENV.fetch("MYSQL_DB") { '_test' } %>_test
 
 production:
   <<: *default
-  database: storage/production.sqlite3
+  database: <%= ENV.fetch("MYSQL_DB") { '' } %>
+  username: <%= ENV.fetch("MYSQL_USER") { '' } %>
+  password: <%= ENV.fetch("MYSQL_PASSWORD") { '' } %>
