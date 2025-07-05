@@ -1,17 +1,21 @@
 .DEFAULT_GOAL := help
 
-new: ## railsプロジェクトを新規作成
+new-api: ## Railsプロジェクトを新規作成
 	docker compose exec api rails _7.1.0_ new . --api
+new-web: ## Reactプロジェクトを新規作成
+	docker compose exec web npx create-react-app .
 install: ## bundle installを実行
 	docker compose exec api bundle install
-create: ## createを実行
+create: ## db:createを実行
 	docker compose exec api rails db:create
-migrate: ## migrationを実行
+migrate: ## db:migrationを実行
 	docker compose exec api rails db:migrate
 up: ## コンテナを起動
 	docker compose up -d
 down:  ## コンテナを停止
 	docker compose down
+web: ## webコンテナに入る
+	docker compose exec -it web /bin/sh
 api: ## apiコンテナに入る
 	docker compose exec -it api bash
 db: ## MySQLサーバーに接続
