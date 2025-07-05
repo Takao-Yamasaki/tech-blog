@@ -1,13 +1,10 @@
+# NOTE: https://zenn.dev/keiziii_san/articles/1469b3d5c10685
 FROM node:18-alpine
 
 WORKDIR /app
 
-# COPY package*.json ./
+COPY . .
 
-# RUN npm install
-
-# COPY . .
+RUN yarn install
 
 EXPOSE 3000
-
-# CMD [ "npm", "start" ]
