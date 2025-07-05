@@ -1,4 +1,18 @@
 services:
+  web:
+    container_name: blog_web
+    build:
+      context: .
+      dockerfile: ./docker/local/web/Dockerfile
+    command: yarn start
+    volumes:
+      - ./blog_web/:/app/
+    env_file:
+      - .env
+    ports:
+      - "${REACT_PORT}:${REACT_PORT}"
+    stdin_open: true
+    tty: true
   api:
     container_name: blog_api
     build:
