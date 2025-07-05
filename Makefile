@@ -14,6 +14,8 @@ up: ## コンテナを起動
 	docker compose up -d
 down:  ## コンテナを停止
 	docker compose down
+nginx: ## nginxコンテナに入る
+	docker compose exec -it nginx /bin/sh
 web: ## webコンテナに入る
 	docker compose exec -it web /bin/sh
 api: ## apiコンテナに入る
@@ -22,8 +24,26 @@ db: ## MySQLサーバーに接続
 	docker compose exec -it db bash -c "mysql -u root -ppassword"
 ps: ## コンテナの起動状況を確認
 	docker compose ps
-rebuild: ## イメージを再ビルドしてコンテナを起動
+rebuild: ## 全イメージを再ビルドしてコンテナを起動
 	docker compose up -d --build
+rebuild-nginx: ## nginxイメージを再ビルドしてコンテナを起動
+	docker compose up nginx -d --build
+rebuild-web: ## webイメージを再ビルドしてコンテナを起動
+	docker compose up web -d --build
+rebuild-api: ## apiイメージを再ビルドしてコンテナを起動
+	docker compose up api -d --build
+rebuild-db: ## dbイメージを再ビルドしてコンテナを起動
+	docker compose up db -d --build
+logs: ## 全コンテナのログ確認
+	docker compose logs
+logs-nginx: ## nginxコンテナのログ確認
+	docker compose logs nginx
+logs-web: ## webコンテナのログ確認
+	docker compose logs web
+logs-api: ## apiコンテナのログ確認
+	docker compose logs web
+logs-db: ## dbコンテナのログ確認
+	docker compose logs db
 config: ## コンフィグファイルの検証
 	docker compose config
 help: ## ヘルプを表示する
