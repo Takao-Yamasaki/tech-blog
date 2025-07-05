@@ -14,6 +14,8 @@ up: ## コンテナを起動
 	docker compose up -d
 down:  ## コンテナを停止
 	docker compose down
+nginx: ## nginxコンテナに入る
+	docker compose exec -it nginx /bin/sh
 web: ## webコンテナに入る
 	docker compose exec -it web /bin/sh
 api: ## apiコンテナに入る
