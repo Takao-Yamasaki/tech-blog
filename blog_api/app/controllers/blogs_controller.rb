@@ -12,7 +12,7 @@ class BlogsController < ApplicationController
 
   def create
     Blog.create(blog_params)
-    # ヘッダのみを返す
+    # ヘッダのみを返す。201を返す。
     head :create
   end
 
