@@ -1,5 +1,5 @@
 # NOTE: https://zenn.dev/keiziii_san/articles/1469b3d5c10685
-FROM node:18-alpine
+FROM node:22-alpine
 
 WORKDIR /app
 
