@@ -13,7 +13,8 @@ services:
     build:
       context: .
       dockerfile: ./docker/local/web/Dockerfile
-    command: yarn start
+    # FIXME: 
+    # command: yarn start
     volumes:
       - ./blog_web/:/app/
     env_file:

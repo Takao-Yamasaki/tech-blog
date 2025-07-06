@@ -3,8 +3,10 @@ FROM node:22-alpine
 
 WORKDIR /app
 
-COPY . .
+# FIXME: 
+# COPY . .
 
-RUN yarn install
+# FIXME:
+# RUN yarn install
 
 EXPOSE 3000
