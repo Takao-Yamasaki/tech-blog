@@ -18,6 +18,8 @@ services:
       - ./blog_web/:/app/
     env_file:
       - .env
+    environment:
+      REACT_APP_API_DOMEIN: ${REACT_APP_API_DOMEIN}
     ports:
       - "${REACT_PORT}:${REACT_PORT}"
     stdin_open: true

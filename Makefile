@@ -8,6 +8,8 @@ bundle-install: ## bundle installを実行
 	docker compose exec api bundle install
 add-react-router: ## React Routerをインストール
 	docker compose exec web yarn add react-router-dom
+add-axios: ## axiosをインストール
+	docker compose exec web yarn add axios
 create: ## db:createを実行
 	docker compose exec api rails db:create
 migrate: ## db:migrationを実行
