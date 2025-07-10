@@ -13,13 +13,13 @@ class BlogsController < ApplicationController
   def create
     Blog.create(blog_params)
     # ヘッダのみを返す。201を返す。
-    head :create
+    head :created
   end
 
   private
 
   def blog_params
     # ストロングパラメータで、titleとcontentsだけ作成を許可
-    params.require(:blog).permit(:title, :content)
+    params.require(:blog).permit(:title, :contents)
   end
 end
