@@ -47,7 +47,7 @@ logs-nginx: ## nginxコンテナのログ確認
 logs-web: ## webコンテナのログ確認
 	docker compose logs web
 logs-api: ## apiコンテナのログ確認
-	docker compose logs web
+	docker compose logs api
 logs-db: ## dbコンテナのログ確認
 	docker compose logs db
 config: ## コンフィグファイルの検証
