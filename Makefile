@@ -4,12 +4,18 @@ new-api: ## Railsプロジェクトを新規作成
 	docker compose exec api rails _7.1.0_ new . --api
 new-web: ## Reactプロジェクトを新規作成
 	docker compose exec web npx create-react-app .
-install: ## bundle installを実行
+bundle-install: ## bundle installを実行
 	docker compose exec api bundle install
+add-react-router: ## React Routerをインストール
+	docker compose exec web yarn add react-router-dom
+add-axios: ## axiosをインストール
+	docker compose exec web yarn add axios
 create: ## db:createを実行
 	docker compose exec api rails db:create
 migrate: ## db:migrationを実行
 	docker compose exec api rails db:migrate
+healthcheck: ## healthcheckを実行
+	curl -I localhost:3010/health_check
 up: ## コンテナを起動
 	docker compose up -d
 down:  ## コンテナを停止
@@ -41,7 +47,7 @@ logs-nginx: ## nginxコンテナのログ確認
 logs-web: ## webコンテナのログ確認
 	docker compose logs web
 logs-api: ## apiコンテナのログ確認
-	docker compose logs web
+	docker compose logs api
 logs-db: ## dbコンテナのログ確認
 	docker compose logs db
 config: ## コンフィグファイルの検証
