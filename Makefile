@@ -28,6 +28,10 @@ api: ## apiコンテナに入る
 	docker compose exec -it api bash
 db: ## MySQLサーバーに接続
 	docker compose exec -it db bash -c "mysql -u root -ppassword"
+redis: ## Redisサーバーに接続
+	docker compose exec -it redis bash -c "redis-cli -h redis"
+console: ## rails consoleを起動
+	docker compose exec -it api bash -c "rails console"
 ps: ## コンテナの起動状況を確認
 	docker compose ps
 rebuild: ## 全イメージを再ビルドしてコンテナを起動
