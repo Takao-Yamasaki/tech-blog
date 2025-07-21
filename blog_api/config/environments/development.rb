@@ -33,6 +33,7 @@ Rails.application.configure do
   # Store uploaded files on the local file system (see config/storage.yml for options).
   config.active_storage.service = :local
 
+  # NOTE: Mailhog
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = { address: 'mailhog', port: 1025 }
   
@@ -40,6 +41,9 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = false
 
   config.action_mailer.perform_caching = false
+
+  # NOTE: Redis
+  config.cache_store = :redis_cache_store, { url: 'redis://localhost:6379/0'} 
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
