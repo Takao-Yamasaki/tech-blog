@@ -1,0 +1,14 @@
+on:
+  workflow_dispatch:
+    inputs:
+      message:
+        description: 'If you run flow, input "run".'
+        required: true
+        default: ''
+
+jobs:
+  purge-all-fastly:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Purge all Fastly
+        run: echo "Purge all Fastly"
