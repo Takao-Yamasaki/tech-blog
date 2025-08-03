@@ -2,8 +2,8 @@
 on:
   workflow_dispatch:
     inputs:
-      message:
-        description: 'If you run flow, input "run".'
+      logLevel:
+        description: 'If you run flow, input "prod".'
         required: true
         default: ''
 
@@ -11,6 +11,7 @@ on:
 # https://github.com/fastly/compute-actions?tab=readme-ov-file#deploy-to-fastly-when-push-to-main
 jobs:
   purge-all-fastly:
+    if: github.event.inputs.logLevel == 'prod'
     runs-on: ubuntu-latest
     environment: prod
     steps:
