@@ -7,9 +7,17 @@ on:
         required: true
         default: ''
 
+# https://www.fastly.com/documentation/reference/cli/purge/
+# https://github.com/fastly/compute-actions?tab=readme-ov-file#deploy-to-fastly-when-push-to-main
 jobs:
   purge-all-fastly:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Fastly CLI
+        uses: fastly/compute-actions/setup@v11
+
       - name: Purge all Fastly
-        run: echo "Purge all Fastly"
+        run: fastly purge --all --service-id ${{ secrets.FASTLY_SERVICE_ID }} -t ${{ secrets.FASTLY_API_TOKEN }}
