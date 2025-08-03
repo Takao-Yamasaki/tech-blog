@@ -1,3 +1,4 @@
+# https://dev.classmethod.jp/articles/workflow-dispatch-fail-safe-by-inputs/
 on:
   workflow_dispatch:
     inputs:
