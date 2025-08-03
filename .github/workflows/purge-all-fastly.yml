@@ -12,6 +12,7 @@ on:
 jobs:
   purge-all-fastly:
     runs-on: ubuntu-latest
+    environment: prod
     steps:
       - name: Checkout
         uses: actions/checkout@v4
