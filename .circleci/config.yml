@@ -6,7 +6,7 @@ orbs:
 jobs:
   purge-all-fastly:
     machine:
-      image: ubuntu-2204:2022.07.1
+      image: ubuntu-2204:2024.11.1
     steps:
       - run:
           name: Wait 5 Sec
