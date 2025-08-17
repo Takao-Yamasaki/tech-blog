@@ -4,6 +4,11 @@ orbs:
   fastly-cli: adobe/fastly-cli@1.1.1
 
 jobs:
+  approval:
+    type: approval
+    approval_type: manual
+    message: "Please approve the purge all for Fastly."
+
   purge-all-fastly:
     machine:
       image: ubuntu-2204:2024.11.1
