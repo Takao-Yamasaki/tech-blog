@@ -21,6 +21,6 @@ workflows:
   my-workflow:
     jobs:
       - approval
-        requires:
-          - purge-all-fastly
+          requires:
+            - purge-all-fastly
       - purge-all-fastly
