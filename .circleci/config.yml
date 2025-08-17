@@ -17,6 +17,10 @@ jobs:
           command: fastly purge --all --service-id ${FASTLY_SERVICE_ID} -t ${FASTLY_API_TOKEN}
 
 workflows:
+  version: 2
   my-workflow:
     jobs:
+      - approval
+        requires:
+          - purge-all-fastly
       - purge-all-fastly
