@@ -10,9 +10,9 @@ jobs:
           name: Wait 5 Sec
           command: sleep 5
       - fastly-cli
-      - run:
-          name: Purge all Fastly
-          command: fastly purge --all --service-id ${FASTLY_SERVICE_ID} -t ${FASTLY_API_TOKEN}
+      # - run:
+      #     name: Purge all Fastly
+      #     command: fastly purge --all --service-id ${FASTLY_SERVICE_ID} -t ${FASTLY_API_TOKEN}
 
 workflows:
   my-workflow:
