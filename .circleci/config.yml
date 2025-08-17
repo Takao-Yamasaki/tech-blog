@@ -8,7 +8,7 @@ jobs:
       - checkout
       - run: echo "hello world"
 
-workflows
+workflows:
   my-workflow:
     jobs:
       - hello-job
