@@ -11,7 +11,7 @@ jobs:
       - run:
           name: Wait 5 Sec
           command: sleep 5
-      - fastly-cli
+      - fastly-cli/install
       - run:
           name: Purge all Fastly
           command: fastly purge --all --service-id ${FASTLY_SERVICE_ID} -t ${FASTLY_API_TOKEN}
