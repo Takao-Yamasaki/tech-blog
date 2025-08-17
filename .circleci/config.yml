@@ -3,7 +3,7 @@ version: 2.1
 jobs:
   hello-job:
     docker:
-      - image: cming/node:17.2.0
+      - image: cimg/node:17.2.0 
     steps:
       - checkout
       - run: echo "hello world"
