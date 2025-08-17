@@ -10,8 +10,8 @@ jobs:
     message: "Please approve the purge all for Fastly."
 
   purge-all-fastly:
-    machine:
-      image: ubuntu-2204:2024.11.1
+    docker:
+      - image: cimg/base:current
     steps:
       - run:
           name: Wait 5 Sec
@@ -25,7 +25,9 @@ workflows:
   version: 2
   my-workflow:
     jobs:
-      - approval
-      - purge-all-fastly:
-          requires:
-            - approval
+      # TODO: local検証のためコメントアウト
+      # - approval
+      # - purge-all-fastly:
+      #     requires:
+      #       - approval
+      - purge-all-fastly
